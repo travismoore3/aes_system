@@ -1,92 +1,41 @@
-# AES system for ESL/ESOL/ELL essay
+# AES system for ESL essays in Python
 
 This AES system seeks to improve the validity of AES used for ELL essays by employing features based on the acquisition order of English negation along with 40 other more commonly used features.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This system requires a corpus of scored essays.
+* [CLC FCE Dataset](https://ilexir.co.uk/datasets/index.html) - This is an open source dataset with scores. The code is not optimized for this dataset but it could be easily reworked to take this corpus
 
-feature_extractor.py will take a corpus of essays and extract the following features:
+**feature_extractor.py** will take a corpus of essays and extract the following features:
 
-[[https://github.com/travismoore3/aes_system/AES_features.png]]
+<img width="618" alt="aes_features" src="https://user-images.githubusercontent.com/32346063/39960460-c8764bdc-55e0-11e8-843a-0738568f48ad.png">
+
+**train_model.py** will create a scoring model based on the features extracted against the scores of the essays. This model will be saved as **trained_essay_scoring_model.pkl**. Evaluations of the model will then take place using an 80%/20% training/testing split. Visualizations of the evaluations are optionally available at the bottom of the script.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+**feature_extractor.py** requires [NLTK](http://www.nltk.org/install.html), [textstat](https://pypi.org/project/textstat/), and [Language-Check](https://pypi.org/project/language-check/)
+
+**train_model.py** needs numpy, pandas, and the following imports from sklearn and matplotlib:
 
 ```
-Give examples
+from sklearn.model_selection import train_test_split
+from sklearn import ensemble, metrics
+from sklearn.metrics import mean_absolute_error
+from sklearn.externals import joblib
+from sklearn.model_selection import KFold
+from matplotlib import pyplot as plt
 ```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+As I am new to this world, any and all contributions are welcome. Please help...
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Travis Moore** - *Link to thesis where this AES system was employed forthcoming*
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
