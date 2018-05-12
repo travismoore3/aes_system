@@ -9,7 +9,7 @@ This system requires a corpus of scored essays.
 
 **feature_extractor.py** will take a corpus of essays and extract the following features:
 
-<img width="618" alt="aes_features" src="https://user-images.githubusercontent.com/32346063/39960460-c8764bdc-55e0-11e8-843a-0738568f48ad.png">
+<img width="618" alt="aes_features" src="https://user-images.githubusercontent.com/32346063/39960983-2a2f2430-55ea-11e8-86bd-2175ae3fffa0.png">
 
 **train_model.py** will create a scoring model based on the features extracted against the scores of the essays. This model will be saved as **trained_essay_scoring_model.pkl**. Evaluations of the model will then take place using an 80%/20% training/testing split. Visualizations of the evaluations are optionally available at the bottom of the script.
 
