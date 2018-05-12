@@ -61,7 +61,9 @@ transition_words = [('and', 'then'), ('besides'), ('equally', 'important'), ('fi
 
 transitions_set = set(transition_words)
 
-with open(os.path.expanduser("~/Desktop/ELC essays/essays.tsv"),encoding='utf-8') as input_file:
+### Import your corpus here in whatever format you have it
+
+with open(os.path.expanduser("filename.tsv"),encoding='utf-8') as input_file:
     for line in input_file:
         # Preprocessing
         line = line.strip()
@@ -219,7 +221,7 @@ with open(os.path.expanduser("~/Desktop/ELC essays/essays.tsv"),encoding='utf-8'
         except ZeroDivisionError:
             prn_noun_ratio = 0
             
-        # Readability measures
+        ## Readability features
         
         num_syllab = textstat.syllable_count(essay)
         avg_len_sent = textstat.avg_sentence_length(essay)
@@ -237,7 +239,7 @@ with open(os.path.expanduser("~/Desktop/ELC essays/essays.tsv"),encoding='utf-8'
         lwf = textstat.linsear_write_formula(essay)
         gf = textstat.gunning_fog(essay)
         
-        # Stages of negation
+        ## Stages of negation (features to improve validity for AES in ELL contexts)
         
         stage1a = len(re.findall(r'\b(no)\W+(DT)\W{6}\w+\W+(VB|VBG|VBD|VBZ|VBP|VBN|MD)\b', str(tagged), flags=re.I))
         stage1b = len(re.findall(r'\b(NN(S|P|PS)|PRP|VB(G|N)|MD)\W{6}(not)\W+(RB)\W+\w+\W+(VB(G|N))\b', str(tagged_low), flags=re.I))
@@ -341,7 +343,9 @@ with open(os.path.expanduser("~/Desktop/ELC essays/essays.tsv"),encoding='utf-8'
             s1_new=0.0
             s2_new=0.0
             s3_new=0.0
-            
+
+# If you add to the features extracted, add them to the output list
+
         output_list.append([Sex, Age, Language, Level, ID, Score, rank_total, rank_avg, pct_transitions, transition_word, 
                             grammar_chk, grammar_error, determiners, conjunctions, prn_density, prn_noun_ratio, 
                             n_trigram_lemma_types, n_bigram_lemma_types, nlemma_types, nlemmas, n_bigram_lemmas, n_trigram_lemmas, 
