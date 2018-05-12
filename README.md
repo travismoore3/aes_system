@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 feature_extractor.py will take a corpus of essays and extract the following features:
 
-![feature list](https://github.com/travismoore3/aes_system/AES_features.png)
+[[https://github.com/travismoore3/aes_system/AES_features.png]]
 
 ### Prerequisites
 
